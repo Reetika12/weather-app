@@ -30,10 +30,11 @@ function Forecast({ forecastData }) {
           }}
         >
           <h3>{new Date(date)?.toLocaleDateString()}</h3>
-          {weatherList.map((weather) => (
+          {weatherList.map((weather, index) => (
             <WeatherItem
               weather={weather}
               timeZone={forecastData?.city?.timezone}
+              key={index}
             />
           ))}
         </div>

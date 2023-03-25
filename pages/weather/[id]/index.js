@@ -12,7 +12,7 @@ const WeatherZipCode = ({ weatherData }) => {
     if (city && list && list?.length >= 1) {
       setLoading(true);
     }
-  }, []);
+  }, [city, list]);
 
   return (
     <>

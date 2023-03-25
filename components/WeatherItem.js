@@ -2,10 +2,10 @@ import weatherItemStyles from "../styles/WeatherItem.module.css";
 import React from "react";
 import moment from "moment-timezone";
 
-function WeatherItem({ weather, timeZone }) {
+function WeatherItem({ weather, timeZone, key }) {
   console.log("weather@#$%^%&", weather);
   return (
-    <div className={weatherItemStyles.hourly}>
+    <div className={weatherItemStyles.hourly} key={key}>
       <div className={weatherItemStyles.inner}>
         <div className={weatherItemStyles.box}>
           <span className={weatherItemStyles.time}>
