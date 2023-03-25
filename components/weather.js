@@ -2,7 +2,7 @@ import React from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import weatherStyles from "../styles/Weather.module.css";
-import UsImage from "../public/images/weather.jpg";
+import WeatherImg from "../public/images/weather.jpg";
 import Image from "next/image";
 
 export default function Weather() {
@@ -50,7 +50,7 @@ export default function Weather() {
         }}
       >
         <Image
-          src={UsImage}
+          src={WeatherImg}
           alt={`weather Image`}
           style={{
             layout: "fill",

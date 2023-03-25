@@ -33,8 +33,18 @@ const WeatherZipCode = ({ weatherData }) => {
           </div>
         </div>
       ) : (
-        <div style={{ margin: "10px 0px", color: "red" }}>
-          Enter Valid Zip Code
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ margin: "10px 10px", color: "red" }}>
+            Enter Valid Zip Code
+          </div>
+          <Link href="/">Go Back</Link>
         </div>
       )}
     </>

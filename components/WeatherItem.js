@@ -1,9 +1,9 @@
-import weatherItemStyles from "../styles/WeatherItem.module.css";
 import React from "react";
+import weatherItemStyles from "../styles/WeatherItem.module.css";
 import moment from "moment-timezone";
+import Image from "next/image";
 
 function WeatherItem({ weather, timeZone, key }) {
-  console.log("weather@#$%^%&", weather);
   return (
     <div className={weatherItemStyles.hourly} key={key}>
       <div className={weatherItemStyles.inner}>
@@ -15,7 +15,7 @@ function WeatherItem({ weather, timeZone, key }) {
               .format("LT")}
           </span>
 
-          <img
+          <Image
             src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
             alt={weather.weather[0].description}
             width="100"
