@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Weather from "./weather";
-import FamousPlaces from "../components/famousPlace";
+import Weather from "../components/weather";
 
 export default function Home() {
   return (

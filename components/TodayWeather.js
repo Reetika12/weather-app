@@ -7,13 +7,13 @@ export default function TodaysWeather({ city }) {
     return <div>Loading forecast...</div>;
   }
   return (
-    <div className={todayWeatherStyle.today}>
-      <div className={todayWeatherStyle.__inner}>
-        <div className={todayWeatherStyle.left_content}>
-          <h1>
-            {city.name} ({city.country})
-          </h1>
-          <div className="today__sun-times">
+    <div className={todayWeatherStyle.parentDiv}>
+      <div className={todayWeatherStyle.today}>
+        <div className={todayWeatherStyle.__inner}>
+          <div>
+            <h1 style={{ margin: "10px 0px" }}>
+              {city.name} ({city.country})
+            </h1>
             <div>
               <span>Sunrise</span>
               <span>
@@ -23,7 +23,6 @@ export default function TodaysWeather({ city }) {
                   .format("LT")}
               </span>
             </div>
-
             <div>
               <span>Sunset</span>
               <span>

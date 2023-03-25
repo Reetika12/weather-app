@@ -21,10 +21,21 @@ const WeatherZipCode = ({ weatherData }) => {
           <TodaysWeather city={weatherData?.city} />
           <br />
           <Forecast forecastData={weatherData} />
-          <Link href="/">Go Back</Link>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
+            <Link href="/">Go Back</Link>
+          </div>
         </div>
       ) : (
-        <div>Enter Valid Zip Code</div>
+        <div style={{ margin: "10px 0px", color: "red" }}>
+          Enter Valid Zip Code
+        </div>
       )}
     </>
   );

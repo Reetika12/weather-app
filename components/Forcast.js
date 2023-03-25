@@ -1,7 +1,6 @@
 import React from "react";
 import WeatherItem from "./WeatherItem";
 function Forecast({ forecastData }) {
-  console.log("forecast+++", forecastData);
   const { city, list } = forecastData;
 
   if (!forecastData) {
@@ -20,23 +19,28 @@ function Forecast({ forecastData }) {
 
   return (
     <div>
-      <h2>{city?.name} 3-hour forecast for the next 5 days:</h2>
+      <h2 style={{ textAlign: "center" }}>
+        {city?.name} 3-hour forecast for the next 5 days:
+      </h2>
       {Object?.entries(groupByDay)?.map(([date, weatherList]) => (
         <div
           key={date}
           style={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
           }}
         >
           <h3>{new Date(date)?.toLocaleDateString()}</h3>
-          {weatherList.map((weather, index) => (
-            <WeatherItem
-              weather={weather}
-              timeZone={forecastData?.city?.timezone}
-              key={index}
-            />
-          ))}
+          <div style={{ display: "flex" }}>
+            {weatherList.map((weather, index) => (
+              <WeatherItem
+                weather={weather}
+                timeZone={forecastData?.city?.timezone}
+                key={index}
+              />
+            ))}
+          </div>
         </div>
       ))}
     </div>
