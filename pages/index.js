@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Weather from "./weather";
 import FamousPlaces from "../components/famousPlace";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <Head>
         <title>Weather App</title>
       </Head>
+      <Weather />
     </div>
   );
 }

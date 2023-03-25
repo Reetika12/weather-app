@@ -1,26 +1,36 @@
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { API_KEY } from "../../../Config/index";
 import TodaysWeather from "../../../components/TodayWeather";
 import Forecast from "../../../components/Forcast";
 
-// const API_KEY = "9234e9a535ed03d6e49f9dc6e709bb38";
 const weatherZipCode = ({ weatherData }) => {
-  //   const router = useRouter();
-  console.log("weatherData++", weatherData);
-  //   const { id } = router.query;
+  const [loading, setLoading] = useState(false);
+  const { city, list } = weatherData;
+
+  useEffect(() => {
+    if (city && list && list?.length >= 1) {
+      setLoading(true);
+    }
+  }, []);
+
   return (
     <>
-      <TodaysWeather city={weatherData?.city} />
-      <br />
-      <Forecast forecastData={weatherData} />
-      <Link href="/">Go Back</Link>
+      {loading ? (
+        <div>
+          <TodaysWeather city={weatherData?.city} />
+          <br />
+          <Forecast forecastData={weatherData} />
+          <Link href="/">Go Back</Link>
+        </div>
+      ) : (
+        <div>Enter Valid Zip Code</div>
+      )}
     </>
   );
 };
 
 export const getServerSideProps = async (context) => {
-  console.log("context params+++", context.params.id);
-  let posts = [];
   const res = await fetch(
     `https://api.openweathermap.org/data/2.5/forecast?zip=${context.params.id}&appid=${API_KEY}`
   );

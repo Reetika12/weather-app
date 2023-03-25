@@ -9,7 +9,7 @@ function Forecast({ forecastData }) {
   }
 
   // Group weather data by day
-  const groupByDay = list.reduce((result, item) => {
+  const groupByDay = list?.reduce((result, item) => {
     const date = item.dt_txt.split(" ")[0];
     if (!result[date]) {
       result[date] = [];
@@ -20,8 +20,8 @@ function Forecast({ forecastData }) {
 
   return (
     <div>
-      <h2>{city.name} 3-hour forecast for the next 5 days:</h2>
-      {Object.entries(groupByDay).map(([date, weatherList]) => (
+      <h2>{city?.name} 3-hour forecast for the next 5 days:</h2>
+      {Object?.entries(groupByDay)?.map(([date, weatherList]) => (
         <div
           key={date}
           style={{
@@ -29,7 +29,7 @@ function Forecast({ forecastData }) {
             alignItems: "center",
           }}
         >
-          <h3>{new Date(date).toLocaleDateString()}</h3>
+          <h3>{new Date(date)?.toLocaleDateString()}</h3>
           {weatherList.map((weather) => (
             <WeatherItem
               weather={weather}

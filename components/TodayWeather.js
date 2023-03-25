@@ -1,9 +1,11 @@
 import moment from "moment-timezone";
 import React from "react";
-import Image from "next/image";
 import todayWeatherStyle from "../styles/Today.module.css";
 
-export default function TodaysWeather({ city, weather, timezone }) {
+export default function TodaysWeather({ city }) {
+  if (!city) {
+    return <div>Loading forecast...</div>;
+  }
   return (
     <div className={todayWeatherStyle.today}>
       <div className={todayWeatherStyle.__inner}>
@@ -33,20 +35,6 @@ export default function TodaysWeather({ city, weather, timezone }) {
             </div>
           </div>
         </div>
-
-        {/* <div className="today__right-content">
-          <div className="today__icon-wrapper">
-            <div>
-              <Image
-                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                alt="Weather Icon"
-                layout="fill"
-              />
-            </div>
-          </div>
-
-          <h3>{weather.weather[0].description}</h3>
-        </div> */}
       </div>
     </div>
   );

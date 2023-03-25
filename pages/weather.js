@@ -1,12 +1,11 @@
 import React from "react";
-// import cities from "../lib/city.list.json";
-import Link from "next/link";
 import Router from "next/router";
+import { useRouter } from "next/router";
 import weatherStyles from "../styles/Weather.module.css";
 
-export default function Weather({ placeholder }) {
+export default function Weather() {
   const [id, setId] = React.useState("");
-  const [results, setResults] = React.useState([]);
+  const router = useRouter();
 
   React.useEffect(() => {
     const clearQuery = () => setId("");
@@ -22,6 +21,12 @@ export default function Weather({ placeholder }) {
     setId(value);
   };
 
+  const handleClick = () => {
+    if (id) {
+      router.push(`/weather/${id}`);
+    }
+  };
+
   return (
     <div className={weatherStyles.search}>
       <input
@@ -30,10 +35,9 @@ export default function Weather({ placeholder }) {
         onChange={onChange}
         placeholder={"Enter Zip Code"}
       />
-
-      <Link href="/weather/[id]" as={`/weather/${id}`}>
-        <div className={weatherStyles.linkStyle}>Enter Zip</div>
-      </Link>
+      <button className={weatherStyles.submit} onClick={handleClick}>
+        Submit
+      </button>
     </div>
   );
 }
