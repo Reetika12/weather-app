@@ -1,7 +1,12 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Head from "next/head";
+import FamousPlaces from "../components/famousPlace";
 
 export default function Home() {
-  return <h1>Weather App!!!</h1>;
+  return (
+    <div>
+      <Head>
+        <title>Weather App</title>
+      </Head>
+    </div>
+  );
 }
