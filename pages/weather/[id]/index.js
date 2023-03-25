@@ -4,7 +4,7 @@ import { API_KEY } from "../../../Config/index";
 import TodaysWeather from "../../../components/TodayWeather";
 import Forecast from "../../../components/Forcast";
 
-const weatherZipCode = ({ weatherData }) => {
+const WeatherZipCode = ({ weatherData }) => {
   const [loading, setLoading] = useState(false);
   const { city, list } = weatherData;
 
@@ -41,4 +41,4 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-export default weatherZipCode;
+export default WeatherZipCode;
